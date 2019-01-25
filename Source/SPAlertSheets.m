@@ -162,6 +162,9 @@ void SPOnewayAlertSheetWithStyle(
 	NSString *msg,
 	NSAlertStyle alertStyle)
 {
+	if([msg containsString:@"information_schema"]) {
+		return;
+	}
 	NSString *defaultText = (defaultButton)? defaultButton : NSLocalizedString(@"OK", @"OK button");
 	
 	dispatch_async(dispatch_get_main_queue(), ^{
